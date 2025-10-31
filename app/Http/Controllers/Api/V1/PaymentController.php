@@ -56,7 +56,7 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validated = $this->validateJsonApi($request, [
             'order_id' => 'required|exists:orders,id',
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:100',
@@ -72,7 +72,22 @@ class PaymentController extends Controller
 
         $payment = Payment::query()->create(
             array_merge(
-                Arr::only($validated, ['address', 'city', 'state', 'postal_code', 'country', 'email', 'name', 'phone', 'amount', 'method']),
+                Arr::only(
+                    $validated,
+                    [
+                        'order_id',
+                        'address',
+                        'city',
+                        'state',
+                        'postal_code',
+                        'country',
+                        'email',
+                        'name',
+                        'phone',
+                        'amount',
+                        'method'
+                    ]
+                ),
                 [
                     'id' => IdGenerator::generate(Payment::class, 10),
                     'status' => 'pending',
