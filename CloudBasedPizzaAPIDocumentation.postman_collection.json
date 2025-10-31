@@ -1,0 +1,1347 @@
+{
+	"info": {
+		"_postman_id": "4f2703ed-a525-460b-9c8e-0af18f7dc29e",
+		"name": "CloudBasedPizza API Documentation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49690726",
+		"_collection_link": "https://bavtrinidad-6005855.postman.co/workspace/Bryan-Angelo-Trinidad's-Workspa~02669b73-f034-4cef-87dd-259dcfd2ec2d/collection/49690726-4f2703ed-a525-460b-9c8e-0af18f7dc29e?action=share&source=collection_link&creator=49690726"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "List all customers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"email\": \"john4@example.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"address\": \"123 Main Street\",\n            \"city\": \"New York\",\n            \"state\": \"NY\",\n            \"created_at\": 1761911084,\n            \"updated_at\": 1761911084\n        },\n        {\n            \"id\": \"CUSTOMER_ITUCLLEDAH\",\n            \"email\": \"john10@example.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"address\": \"123 Main Street\",\n            \"city\": \"New York\",\n            \"state\": \"NY\",\n            \"created_at\": 1761918353,\n            \"updated_at\": 1761918353\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new customer\n\nThis endpoint creates a new customer using the JSON:API format.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"email\": \"john4@example.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"address\": \"123 Main Street\",\n            \"city\": \"New York\",\n            \"state\": \"NY\",\n            \"updated_at\": \"1761895592\",\n            \"created_at\": \"1761895592\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"email\": \"john4@example.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"address\": \"123 Main Street\",\n            \"city\": \"New York\",\n            \"state\": \"NY\",\n            \"updated_at\": \"1761895592\",\n            \"created_at\": \"1761895592\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n \"data\": {\n     \"id\": 4\n     \"email\": \"john4@example.com\",\n     \"first_name\": \"John\",\n     \"last_name\": \"Doe\",\n     \"address\": \"123 Main Street\",\n     \"city\": \"New York\",\n     \"state\": \"NY\",\n     \"updated_at\": \"1761895592\",\n     \"created_at\": \"1761895592\",\n }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show a single customer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "CUSTOMER_IS4MAWHCGT",
+									"description": "The ID of the customer."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "CUSTOMER_IS4MAWHCGT",
+											"description": "The ID of the customer."
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"CUSTOMER_IS4MAWHCGT\",\n        \"email\": \"john4@example.com\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"address\": \"123 Main Street\",\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"created_at\": 1761911084,\n        \"updated_at\": 1761911084\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an existing customer\n\nUpdates the specified customer using the JSON:API format.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"email\": \"john10@example.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"address\": \"123 Main Street\",\n            \"city\": \"New York\",\n            \"state\": \"NY\",\n            \"updated_at\": \"1761895592\",\n            \"created_at\": \"1761895592\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/customers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "CUSTOMER_IS4MAWHCGT",
+									"description": "The ID of the customer."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"email\": \"john10@example.com\",\n            \"first_name\": \"John\",\n            \"last_name\": \"Doe\",\n            \"address\": \"123 Main Street\",\n            \"city\": \"New York\",\n            \"state\": \"NY\",\n            \"updated_at\": \"1761895592\",\n            \"created_at\": \"1761895592\"\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/customers/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"CUSTOMER_IS4MAWHCGT\",\n        \"email\": \"john4@example.com\",\n        \"first_name\": \"John\",\n        \"last_name\": \"Doe\",\n        \"address\": \"123 Main Street\",\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"created_at\": 1761911084,\n        \"updated_at\": 1761911084\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "List all pizza orders",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"ORDER_0PDAUKSZNS\",\n            \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"payment_id\": null,\n            \"status\": \"pending\",\n            \"total_amount\": \"24.00\",\n            \"created_at\": 1761923474,\n            \"updated_at\": 1761923474,\n            \"items\": [\n                {\n                    \"id\": \"ORDERITEM_I9YZH5DP6X\",\n                    \"order_id\": \"ORDER_0PDAUKSZNS\",\n                    \"parent_order_item_id\": \"ORDERITEM_NUVF3KXDP3\",\n                    \"orderable_id\": \"TOPPING_MWFVU8MSBM\",\n                    \"orderable_type\": \"App\\\\Models\\\\Topping\",\n                    \"quantity\": 1,\n                    \"subtotal\": \"1.00\",\n                    \"created_at\": 1761923474,\n                    \"updated_at\": 1761923474,\n                    \"orderable\": {\n                        \"id\": \"TOPPING_MWFVU8MSBM\",\n                        \"name\": \"Bellpepper\",\n                        \"price\": \"1.00\",\n                        \"created_at\": 1761918645,\n                        \"updated_at\": 1761918645\n                    }\n                },\n                {\n                    \"id\": \"ORDERITEM_NP4HSVB6AY\",\n                    \"order_id\": \"ORDER_0PDAUKSZNS\",\n                    \"parent_order_item_id\": \"ORDERITEM_NUVF3KXDP3\",\n                    \"orderable_id\": \"TOPPING_MMVLCXEGI6\",\n                    \"orderable_type\": \"App\\\\Models\\\\Topping\",\n                    \"quantity\": 1,\n                    \"subtotal\": \"1.00\",\n                    \"created_at\": 1761923474,\n                    \"updated_at\": 1761923474,\n                    \"orderable\": {\n                        \"id\": \"TOPPING_MMVLCXEGI6\",\n                        \"name\": \"Cheese\",\n                        \"price\": \"1.00\",\n                        \"created_at\": 1761918636,\n                        \"updated_at\": 1761918636\n                    }\n                },\n                {\n                    \"id\": \"ORDERITEM_NUVF3KXDP3\",\n                    \"order_id\": \"ORDER_0PDAUKSZNS\",\n                    \"parent_order_item_id\": null,\n                    \"orderable_id\": \"PIZZA_IARHOKHEYV\",\n                    \"orderable_type\": \"App\\\\Models\\\\Pizza\",\n                    \"quantity\": 2,\n                    \"subtotal\": \"24.00\",\n                    \"created_at\": 1761923474,\n                    \"updated_at\": 1761923474,\n                    \"orderable\": {\n                        \"id\": \"PIZZA_IARHOKHEYV\",\n                        \"image\": null,\n                        \"name\": \"Custom Pizza\",\n                        \"description\": \"Bare pizza\",\n                        \"customizable\": 1,\n                        \"price\": \"10.00\",\n                        \"created_at\": 1761919790,\n                        \"updated_at\": 1761919790\n                    }\n                }\n            ],\n            \"payment\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new order",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"pizzas\": [\n                {\n                    \"id\": \"PIZZA_IARHOKHEYV\",\n                    \"quantity\": 2,\n                    \"toppings\": [\n                        { \"id\": \"TOPPING_MWFVU8MSBM\", \"quantity\": 1 },\n                        { \"id\": \"TOPPING_MMVLCXEGI6\", \"quantity\": 1 }\n                    ]\n                }\n            ]\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/orders",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success - Non costumized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"pizzas\": [\n                {\n                    \"id\": \"PIZZA_0CEKSJCISD\",\n                    \"quantity\": 1,\n                    \"toppings\": []\n                }\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n        \"id\": \"ORDER_VKZQGUZNZX\",\n        \"status\": \"pending\",\n        \"total_amount\": 12,\n        \"updated_at\": 1761922611,\n        \"created_at\": 1761922611,\n        \"items\": [\n            {\n                \"id\": \"ORDERITEM_D0JGUC4S9Z\",\n                \"order_id\": \"ORDER_VKZQGUZNZX\",\n                \"parent_order_item_id\": null,\n                \"orderable_id\": \"TOPPING_AQDWJ7CHRS\",\n                \"orderable_type\": \"topping\",\n                \"quantity\": 1,\n                \"subtotal\": \"1.00\",\n                \"created_at\": 1761922611,\n                \"updated_at\": 1761922611\n            },\n            {\n                \"id\": \"ORDERITEM_IUISTZGTQR\",\n                \"order_id\": \"ORDER_VKZQGUZNZX\",\n                \"parent_order_item_id\": null,\n                \"orderable_id\": \"PIZZA_0CEKSJCISD\",\n                \"orderable_type\": \"pizza\",\n                \"quantity\": 1,\n                \"subtotal\": \"12.00\",\n                \"created_at\": 1761922611,\n                \"updated_at\": 1761922611\n            },\n            {\n                \"id\": \"ORDERITEM_UBN1XLRLXA\",\n                \"order_id\": \"ORDER_VKZQGUZNZX\",\n                \"parent_order_item_id\": null,\n                \"orderable_id\": \"TOPPING_EWYQOQD4R7\",\n                \"orderable_type\": \"topping\",\n                \"quantity\": 1,\n                \"subtotal\": \"1.00\",\n                \"created_at\": 1761922611,\n                \"updated_at\": 1761922611\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Success - Customized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"pizzas\": [\n                {\n                    \"id\": \"PIZZA_IARHOKHEYV\",\n                    \"quantity\": 1,\n                    \"toppings\": [\n                        { \"id\": \"TOPPING_MWFVU8MSBM\", \"quantity\": 1 },\n                        { \"id\": \"TOPPING_MMVLCXEGI6\", \"quantity\": 1 }\n                    ]\n                }\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/orders",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n        \"id\": \"ORDER_LBOJ9HFB2D\",\n        \"status\": \"pending\",\n        \"total_amount\": 12,\n        \"updated_at\": 1761922563,\n        \"created_at\": 1761922563,\n        \"items\": [\n            {\n                \"id\": \"ORDERITEM_GH823SCPD1\",\n                \"order_id\": \"ORDER_LBOJ9HFB2D\",\n                \"parent_order_item_id\": null,\n                \"orderable_id\": \"PIZZA_IARHOKHEYV\",\n                \"orderable_type\": \"pizza\",\n                \"quantity\": 1,\n                \"subtotal\": \"12.00\",\n                \"created_at\": 1761922563,\n                \"updated_at\": 1761922563\n            },\n            {\n                \"id\": \"ORDERITEM_LSG9UAYJLU\",\n                \"order_id\": \"ORDER_LBOJ9HFB2D\",\n                \"parent_order_item_id\": \"ORDERITEM_GH823SCPD1\",\n                \"orderable_id\": \"TOPPING_MWFVU8MSBM\",\n                \"orderable_type\": \"topping\",\n                \"quantity\": 1,\n                \"subtotal\": \"1.00\",\n                \"created_at\": 1761922563,\n                \"updated_at\": 1761922563\n            },\n            {\n                \"id\": \"ORDERITEM_ZCD5HLIPEM\",\n                \"order_id\": \"ORDER_LBOJ9HFB2D\",\n                \"parent_order_item_id\": \"ORDERITEM_GH823SCPD1\",\n                \"orderable_id\": \"TOPPING_MMVLCXEGI6\",\n                \"orderable_type\": \"topping\",\n                \"quantity\": 1,\n                \"subtotal\": \"1.00\",\n                \"created_at\": 1761922563,\n                \"updated_at\": 1761922563\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a single order",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/orders/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "The ID of the order."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Untitled Example",
+							"originalRequest": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/orders/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"orders",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "The ID of the order."
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\n  \"data\": {\n    \"id\": 1,\n    \"customer\": {\n      \"id\": \"CUSTOMER_001\",\n      \"name\": \"John Doe\",\n      \"email\": \"john@example.com\"\n    },\n    \"order_items\": [\n      {\n        \"pizza_id\": \"PIZZA_001\",\n        \"name\": \"Pepperoni\",\n        \"quantity\": 2,\n        \"subtotal\": 700,\n        \"toppings\": [\n          {\"id\": \"TOPPING_AQDWJ7CHRS\", \"name\": \"Cheese\", \"quantity\": 1, \"subtotal\": 50}\n        ]\n      }\n    ],\n    \"payment\": {\n      \"method\": \"Credit Card\",\n      \"status\": \"paid\",\n      \"transaction_id\": \"TX123456789\"\n    },\n    \"status\": \"pending\",\n    \"total_amount\": 10,\n    \"created_at\": 1761895592,\n    \"updated_at\": 1761895592\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Store a new payment record",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"order_id\": \"ORDER_001\",\n      \"address\": \"123 Main St\",\n      \"city\": \"Manila\",\n      \"state\": \"Metro Manila\",\n      \"postal_code\": \"1000\",\n      \"country\": \"Philippines\",\n      \"email\": \"john@example.com\",\n      \"name\": \"John Doe\",\n      \"phone\": \"+639171234567\",\n      \"amount\": 750,\n      \"method\": \"Credit Card\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"attributes\": {\n      \"order_id\": \"ORDER_0PDAUKSZNS\",\n      \"address\": \"123 Main St\",\n      \"city\": \"Manila\",\n      \"state\": \"Metro Manila\",\n      \"postal_code\": \"1000\",\n      \"country\": \"Philippines\",\n      \"email\": \"john@example.com\",\n      \"name\": \"John Doe\",\n      \"phone\": \"+639171234567\",\n      \"amount\": 750,\n      \"method\": \"card\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"payments"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"PAYMENT_ABC123\",\n        \"order_id\": \"ORDER_001\",\n        \"address\": \"123 Main St\",\n        \"city\": \"Manila\",\n        \"state\": \"Metro Manila\",\n        \"postal_code\": \"1000\",\n        \"country\": \"Philippines\",\n        \"email\": \"john@example.com\",\n        \"name\": \"John Doe\",\n        \"phone\": \"+639171234567\",\n        \"amount\": 750,\n        \"method\": \"Credit Card\",\n        \"status\": \"pending\",\n        \"created_at\": 1761895592\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Mark a payment as successful",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payments/:payment_id/pay",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								":payment_id",
+								"pay"
+							],
+							"variable": [
+								{
+									"key": "payment_id",
+									"value": "PAYMENT_ABC123",
+									"description": "The ID of the payment."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/payments/:payment_id/pay",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"payments",
+										":payment_id",
+										"pay"
+									],
+									"variable": [
+										{
+											"key": "payment_id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"PAYMENT_YPC6SSYNIB\",\n        \"address\": \"123 Main St\",\n        \"amount\": \"750.00\",\n        \"city\": \"Manila\",\n        \"state\": \"Metro Manila\",\n        \"postal_code\": \"1000\",\n        \"country\": \"Philippines\",\n        \"email\": \"john@example.com\",\n        \"name\": \"John Doe\",\n        \"phone\": \"+639171234567\",\n        \"method\": \"card\",\n        \"order_id\": \"ORDER_0PDAUKSZNS\",\n        \"status\": \"paid\",\n        \"created_at\": 1761926117,\n        \"updated_at\": 1761926252,\n        \"order\": {\n            \"id\": \"ORDER_0PDAUKSZNS\",\n            \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"payment_id\": null,\n            \"status\": \"paid\",\n            \"total_amount\": \"24.00\",\n            \"created_at\": 1761923474,\n            \"updated_at\": 1761926252\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Mark a payment as failed",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/payments/:payment_id/fail",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"payments",
+								":payment_id",
+								"fail"
+							],
+							"variable": [
+								{
+									"key": "payment_id",
+									"value": "PAYMENT_ABC123",
+									"description": "The ID of the payment."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/payments/:payment_id/fail",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"payments",
+										":payment_id",
+										"fail"
+									],
+									"variable": [
+										{
+											"key": "payment_id",
+											"value": "PAYMENT_YPC6SSYNIB"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"PAYMENT_YPC6SSYNIB\",\n        \"address\": \"123 Main St\",\n        \"amount\": \"750.00\",\n        \"city\": \"Manila\",\n        \"state\": \"Metro Manila\",\n        \"postal_code\": \"1000\",\n        \"country\": \"Philippines\",\n        \"email\": \"john@example.com\",\n        \"name\": \"John Doe\",\n        \"phone\": \"+639171234567\",\n        \"method\": \"card\",\n        \"order_id\": \"ORDER_0PDAUKSZNS\",\n        \"status\": \"failed\",\n        \"created_at\": 1761926117,\n        \"updated_at\": 1761926181,\n        \"order\": {\n            \"id\": \"ORDER_0PDAUKSZNS\",\n            \"customer_id\": \"CUSTOMER_IS4MAWHCGT\",\n            \"payment_id\": null,\n            \"status\": \"failed\",\n            \"total_amount\": \"24.00\",\n            \"created_at\": 1761923474,\n            \"updated_at\": 1761926181\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Pizza",
+			"item": [
+				{
+					"name": "List all pizzas",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pizzas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pizzas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"PIZZA_0BQVJAMDIU\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761911725,\n            \"updated_at\": 1761911725\n        },\n        {\n            \"id\": \"PIZZA_0CEKSJCISD\",\n            \"image\": null,\n            \"name\": \"Pepperoni Pizza\",\n            \"description\": \"Delicious pepperoni pizza\",\n            \"customizable\": 0,\n            \"price\": \"10.00\",\n            \"created_at\": 1761918939,\n            \"updated_at\": 1761918939\n        },\n        {\n            \"id\": \"PIZZA_BCFZYARCK6\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913643,\n            \"updated_at\": 1761913643\n        },\n        {\n            \"id\": \"PIZZA_CE53MRUYKT\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913286,\n            \"updated_at\": 1761913286\n        },\n        {\n            \"id\": \"PIZZA_DQYFQFYLVJ\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761914204,\n            \"updated_at\": 1761914204\n        },\n        {\n            \"id\": \"PIZZA_FGSQPFXZBV\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913597,\n            \"updated_at\": 1761913597\n        },\n        {\n            \"id\": \"PIZZA_FPXCKP20K0\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761911444,\n            \"updated_at\": 1761911444\n        },\n        {\n            \"id\": \"PIZZA_JYAG13TPQP\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913896,\n            \"updated_at\": 1761913896\n        },\n        {\n            \"id\": \"PIZZA_LUHRIDBQ7B\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913841,\n            \"updated_at\": 1761913841\n        },\n        {\n            \"id\": \"PIZZA_NGIVBLJ9ZY\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913895,\n            \"updated_at\": 1761913895\n        },\n        {\n            \"id\": \"PIZZA_OFXHFNM2A2\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761911636,\n            \"updated_at\": 1761911636\n        },\n        {\n            \"id\": \"PIZZA_OREZW1ZOAA\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761914271,\n            \"updated_at\": 1761914271\n        },\n        {\n            \"id\": \"PIZZA_PN4IM8NYSE\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761914259,\n            \"updated_at\": 1761914259\n        },\n        {\n            \"id\": \"PIZZA_RXAOQCXGFA\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913093,\n            \"updated_at\": 1761913093\n        },\n        {\n            \"id\": \"PIZZA_S6TJ8D0IMY\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761914254,\n            \"updated_at\": 1761914254\n        },\n        {\n            \"id\": \"PIZZA_TRXKAOZTQZ\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913890,\n            \"updated_at\": 1761913890\n        },\n        {\n            \"id\": \"PIZZA_TXYBLGXFMS\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761913175,\n            \"updated_at\": 1761913175\n        },\n        {\n            \"id\": \"PIZZA_XKUB8TY3MH\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761914276,\n            \"updated_at\": 1761914276\n        },\n        {\n            \"id\": \"PIZZA_ZCEOJCR6EQ\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 1,\n            \"price\": \"10.00\",\n            \"created_at\": 1761911666,\n            \"updated_at\": 1761911666\n        },\n        {\n            \"id\": \"PIZZA_ZKJOZBTV4P\",\n            \"image\": null,\n            \"name\": \"Spinach Pizza\",\n            \"description\": \"Delicious Spinach pizza\",\n            \"customizable\": 0,\n            \"price\": \"10.00\",\n            \"created_at\": 1761914423,\n            \"updated_at\": 1761914423\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new pizza with optional toppings.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pizzas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pizzas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"attributes\": {\n            \"name\": \"Pepperoni Pizza\",\n            \"description\": \"Delicious pepperoni pizza\",\n            \"customizable\": false,\n            \"price\": 10,\n            \"toppings\": [\n                { \"id\": \"TOPPING_AQDWJ7CHRS\" },\n                { \"id\": \"TOPPING_EWYQOQD4R7\" }\n            ]\n        }\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pizzas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pizzas"
+									]
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"Pepperoni Pizza\",\n        \"description\": \"Delicious pepperoni pizza\",\n        \"customizable\": false,\n        \"price\": 10,\n        \"id\": \"PIZZA_0CEKSJCISD\",\n        \"updated_at\": 1761918939,\n        \"created_at\": 1761918939,\n        \"toppings\": [\n            {\n                \"id\": \"TOPPING_AQDWJ7CHRS\",\n                \"name\": \"Spinach6\",\n                \"price\": \"1.00\",\n                \"created_at\": 1761911439,\n                \"updated_at\": 1761911439,\n                \"pivot\": {\n                    \"pizza_id\": \"PIZZA_0CEKSJCISD\",\n                    \"topping_id\": \"TOPPING_AQDWJ7CHRS\"\n                }\n            },\n            {\n                \"id\": \"TOPPING_EWYQOQD4R7\",\n                \"name\": \"Spinach2\",\n                \"price\": \"1.00\",\n                \"created_at\": 1761911278,\n                \"updated_at\": 1761911278,\n                \"pivot\": {\n                    \"pizza_id\": \"PIZZA_0CEKSJCISD\",\n                    \"topping_id\": \"TOPPING_EWYQOQD4R7\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show a single pizza",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/pizzas/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pizzas",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "PIZZA_0BQVJAMDIU",
+									"description": "The ID of the pizza."
+								},
+								{
+									"key": "pizza",
+									"value": "16",
+									"description": "The ID of the pizza."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/pizzas/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"pizzas",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "PIZZA_0BQVJAMDIU"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"PIZZA_0BQVJAMDIU\",\n        \"image\": null,\n        \"name\": \"Spinach Pizza\",\n        \"description\": \"Delicious Spinach pizza\",\n        \"customizable\": 1,\n        \"price\": \"10.00\",\n        \"created_at\": 1761911725,\n        \"updated_at\": 1761911725\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Topping",
+			"item": [
+				{
+					"name": "List all Topping",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/toppings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"toppings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"TOPPING_AQDWJ7CHRS\",\n            \"name\": \"Spinach6\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911439,\n            \"updated_at\": 1761911439\n        },\n        {\n            \"id\": \"TOPPING_EWYQOQD4R7\",\n            \"name\": \"Spinach2\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911278,\n            \"updated_at\": 1761911278\n        },\n        {\n            \"id\": \"TOPPING_LIZKHEFUF8\",\n            \"name\": \"Spinach1\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911154,\n            \"updated_at\": 1761911154\n        },\n        {\n            \"id\": \"TOPPING_MMVLCXEGI6\",\n            \"name\": \"Cheese\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761918636,\n            \"updated_at\": 1761918636\n        },\n        {\n            \"id\": \"TOPPING_MWFVU8MSBM\",\n            \"name\": \"Bellpepper\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761918645,\n            \"updated_at\": 1761918645\n        },\n        {\n            \"id\": \"TOPPING_NJ8VBTAXVL\",\n            \"name\": \"Spinach\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911088,\n            \"updated_at\": 1761911088\n        },\n        {\n            \"id\": \"TOPPING_Q1GGBBPLXO\",\n            \"name\": \"Spinach5\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911422,\n            \"updated_at\": 1761911422\n        },\n        {\n            \"id\": \"TOPPING_T6VXR3P4FC\",\n            \"name\": \"Olives\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761918649,\n            \"updated_at\": 1761918649\n        },\n        {\n            \"id\": \"TOPPING_WXJN43SMAP\",\n            \"name\": \"Chillies\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761918692,\n            \"updated_at\": 1761918692\n        },\n        {\n            \"id\": \"TOPPING_XKXAXXJBHV\",\n            \"name\": \"Spinach4\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911315,\n            \"updated_at\": 1761911315\n        },\n        {\n            \"id\": \"TOPPING_ZVJ6SC3NMJ\",\n            \"name\": \"Spinach3\",\n            \"price\": \"1.00\",\n            \"created_at\": 1761911296,\n            \"updated_at\": 1761911296\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new topping.",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[]"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/toppings",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"toppings"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"data\": {\n    \"attributes\": {\n        \"name\": \"Chillies\",\n        \"price\": 1\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								}
+							},
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"name\": \"Chillies\",\n        \"price\": 1,\n        \"id\": \"TOPPING_WXJN43SMAP\",\n        \"updated_at\": 1761918692,\n        \"created_at\": 1761918692\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show a single topping",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/v1/toppings/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"toppings",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "TOPPING_WXJN43SMAP",
+									"description": "The ID of the topping."
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/v1/toppings/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"toppings",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "TOPPING_WXJN43SMAP"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "cache-control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"TOPPING_WXJN43SMAP\",\n        \"name\": \"Chillies\",\n        \"price\": \"1.00\",\n        \"created_at\": 1761918692,\n        \"updated_at\": 1761918692\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:30000",
+			"type": "string"
+		}
+	]
+}
